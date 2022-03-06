@@ -4,7 +4,10 @@
 body {
     margin-left: 0;
     margin-right: 0;
-    background-color: #C7C5EE;
+    background-image: url('clouds.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
 }
 
 .titlecenter {
