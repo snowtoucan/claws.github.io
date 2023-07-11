@@ -129,6 +129,8 @@
   
   #scene-container {
     margin: 0;
+    height: calc(100vh - 82.8px);
+    width: 100vw;
   }
   
   @font-face {
