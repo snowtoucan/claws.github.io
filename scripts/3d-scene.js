@@ -1,10 +1,6 @@
-const sceneHeight = window.innerHeight - 82.8; // Subtracting 82.8px from the window height
-
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / sceneHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, sceneHeight);
-document.getElementById('scene-container').appendChild(renderer.domElement);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight - 82.8), 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 
 let model; // Variable to hold the loaded GLTF model
 
@@ -14,6 +10,14 @@ loader.load(
   function (gltf) {
     model = gltf.scene;
     scene.add(model);
+
+    // Center the object vertically
+    const box = new THREE.Box3().setFromObject(model);
+    const center = box.getCenter(new THREE.Vector3());
+    model.position.y -= center.y;
+
+    // Render the scene
+    animate();
   },
   undefined,
   function (error) {
@@ -136,10 +140,16 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-animate();
+function updateCanvasSize() {
+  const height = window.innerHeight - 82.8;
+  const width = window.innerWidth;
 
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / sceneHeight;
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, sceneHeight);
-});
+  renderer.setSize(width, height);
+}
+
+window.addEventListener('resize', updateCanvasSize);
+updateCanvasSize();
+
+document.getElementById('scene-container').appendChild(renderer.domElement);
