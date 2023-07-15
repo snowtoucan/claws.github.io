@@ -2,6 +2,14 @@ function setMode(mode) {
   localStorage.setItem('mode', mode);
 }
 
+function getSystemMode() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark-mode';
+  } else {
+      return 'light-mode';
+  }
+}
+
 function toggleMode(event) {
   event.preventDefault(); // Prevent URL change
 
