@@ -1,0 +1,312 @@
+:root {
+  --transition-duration: 0.3s; /* Transition duration in seconds */
+}
+
+.light-mode {
+  --lav1: #c1add4;
+  --lav2: #857490;
+  --lav3: #d3abee;
+  --lav4: #E6E2DC;
+  --lav5: #ffffff;
+  --lav6: #877f8e;
+  --lav7: #8b969a;
+  transition: var(--transition-duration) background-image;
+  background-image: url(scroll-light.png);
+}
+
+.light-mode .events_mainimagediv {
+  opacity: 1;
+  transition: var(--transition-duration) opacity;    
+}
+
+.dark-mode {
+  --lav1: #c1add4;
+  --lav2: #857490;
+  --lav3: #d3abee;
+  --lav4: #343236;
+  --lav5: #100E11;
+  --lav6: #d7cee1;
+  --lav7: #667073;
+  transition: var(--transition-duration) background-image;
+  background-image: url(scroll-dark.png);
+}
+
+.dark-mode .events_mainimagediv {
+  opacity: 1;
+  transition: var(--transition-duration) opacity;    
+}
+  
+  
+  body {
+    margin: 0;
+    background-color: var(--lav4);
+    transition: var(--transition-duration) background-color;
+    background-image: url(scroll-light.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+  }
+
+  .header {
+    z-index: 1000;
+    width: 100%;
+    height: 82.8px;
+    padding: 0;
+    background-color: var(--lav5);
+    transition: var(--transition-duration) background-color;
+  }
+
+  .footer {
+    z-index: 1000;
+    width: 100%;
+    height: 82.8px;
+    padding: 0;
+  }
+  
+  .logo {
+    height: 54px;
+    margin-top: 14.4px;
+    fill: var(--logocolor);
+  }
+  
+  .title {
+    position: absolute;
+    margin: 0;
+    top: 22.5px;
+    left: 81px;
+    -webkit-user-select: none; /* safari */
+    -moz-user-select: none; /* firefox */
+    -ms-user-select: none; /* ie10+/edge */
+    user-select: none; /* standard */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 37.8px; /* Set the same font size as before */
+    }
+  }
+  
+  .head-left {
+    margin-left: 19.8px;
+  }
+  
+  .head-right {
+    position: absolute;
+    top: 4.5px;
+    text-align: right;
+  }
+  
+  #events_para1 {
+    color: var(--lav6);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 675px;
+    text-align: left;
+  }
+
+  #events_para2 {
+    color: var(--lav6);
+    position: absolute;
+    left: calc(50% + 19px);
+    transform: translate(-50%, -50%);
+    min-width: 675px;
+    max-width: 675px;
+    text-align: left;
+  }
+
+  #maintext {
+    color: var(--lav6);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    text-align: center;
+  }
+  
+  #subtext {
+    color: var(--lav6);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 350px;
+    text-align: center;
+  }
+
+  #learnmore {
+    color: var(--lav6);
+    --buttoncolour: var(--lav6);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 120px;
+    text-align: center;
+  }
+  #learnmore:hover {
+    color: var(--lav2);
+    --buttoncolour: var(--lav2);
+    
+  }
+  #learnmore:active {
+    color: var(--lav3);
+    --buttoncolour: var(--lav3);
+  }
+
+  #paralink {
+    color: var(--lav6);
+  }
+  #paralink:hover {
+    color: var(--lav2);
+  }
+  #paralink:active {
+    color: var(--lav3);
+  }
+
+  #limbowlink {
+    color: var(--lav7);
+    min-width: 155px;
+    min-height: fit-content;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  #limbowlink:hover {
+    color: var(--lav2);
+  }
+  #limbowlink:active {
+    color: var(--lav3);
+  }
+
+  a {
+    --logocolor: var(--lav1);
+    color: var(--lav1);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    --logocolor: var(--lav2);
+    color: var(--lav2);
+  }
+  
+  a:active {
+    --logocolor: var(--lav3);
+    color: var(--lav3);
+  }
+  
+  .toggle-themes {
+    position: absolute;
+    top: 24.3px;
+    fill: var(--logocolor);
+    height: 27px;
+  }
+  
+  #scene-container {
+    margin: 0;
+    height: calc(100vh - 82.8px);
+    width: 100vw;
+  }
+
+  .background-events {
+    width: 100%;
+    margin: 0;
+  }
+
+  #background-image {
+    width: 100%;
+    margin: 0;
+  }
+
+  #events_mainimage {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    margin: 0;
+  }
+
+  .events_mainimagediv {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: 700px 700px;
+    background-image: url(clawsvsclaws-light.png);
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: var(--transition-duration) opacity; /* Add transition for opacity */
+  }
+
+  .light-mode .events_mainimagediv {
+    transition: var(--transition-duration) opacity;
+    background-image: url(clawsvsclaws-light.png);
+    opacity: 1; /* Set opacity to 1 for light mode */
+  }
+  
+  .dark-mode .events_mainimagediv {
+    transition: var(--transition-duration) opacity;
+    background-image: url(clawsvsclaws-dark.png);
+    opacity: 1; /* Set opacity to 1 for dark mode */
+  }
+  
+  @font-face {
+    font-family: 'MedievalSharp';
+    src: url(https://fonts.gstatic.com/s/medievalsharp/v14/EvOJzAlL3oU5AQl2mP5KdgptMqZwMinUPDhdog.woff2)
+      format('woff2');
+    src: url(https://fonts.gstatic.com/s/medievalsharp/v14/EvOJzAlL3oU5AQl2mP5KdgptMqhwMinUPDg.woff2)
+      format('woff2');
+  }
+  
+  .join-button {
+    /* Existing CSS properties */
+    border: 2px solid var(--buttoncolour);
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 4px;
+    border-radius: 0;
+    /* Other CSS properties */
+  }  
+
+  h1 {
+    font-family: 'MedievalSharp';
+    font-weight: normal;
+    font-size: 37.8px;
+  }
+  
+  h2 {
+    font-family: 'MedievalSharp';
+    font-weight: normal;
+    font-size: 23.4px;
+  }
+
+  h3 {
+    font-family: 'MedievalSharp';
+    font-weight: normal;
+    font-size: 41.4px;
+  }
+  
+  p {
+    font-family: 'MedievalSharp';
+    font-weight: normal;
+    text-align: left;
+    font-size: 16.2px;
+  }
+  
+  li {
+    font-family: 'MedievalSharp'; /* may use different font */
+    font-weight: normal;
+    font-size: 18px;
+    list-style: none;
+  
+    display: inline; /* flat list */
+    padding: 7.2px;
+  }
+  
+  .noselect {
+    -webkit-user-select: none; /* safari */
+    -moz-user-select: none; /* firefox */
+    -ms-user-select: none; /* ie10+/edge */
+    user-select: none; /* standard */
+  }
