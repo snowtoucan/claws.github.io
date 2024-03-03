@@ -4,12 +4,25 @@
 
 .light-mode {
   --lav1: #c1add4;
+  --lav10001: #9f75c7;
+  --lav10002: #b695d5;
+  --lav1c003: #9f75c7;
+  --lav1c004: #dddddd;
   --lav2: #857490;
+  --lav20001: #7d5e99; /* would be cool to do custom for each icon */
+  --lav20002: #9881ae; /* would be cool to do custom for each icon */
+  --lav2c003: #7d5e99;
+  --lav2c004: #dddddd;
   --lav3: #d3abee;
+  --lav30001: #c894ea; /* ^ maybe? */
+  --lav30002: #a469cc; /* ^ maybe? */
+  --lav3c003: #dddddd;
+  --lav3c004: #c894ea;
   --lav4: #E6E2DC;
   --lav5: #ffffff;
   --lav6: #877f8e;
   --lav7: #8b969a;
+  --lav8: #dddddd;
   transition: var(--transition-duration) background-image;
   background-image: url(scroll-light.png);
 }
@@ -21,12 +34,25 @@
 
 .dark-mode {
   --lav1: #c1add4;
+  --lav10001: var(--lav1);
+  --lav10002: #ac82c0;
+  --lav1c003: #1c1a1e;
+  --lav1c004: #c1add4;
   --lav2: #857490;
+  --lav20001: var(--lav2);
+  --lav20002: #674c79;
+  --lav2c003: #181519;
+  --lav2c004: #857490;
   --lav3: #d3abee;
+  --lav30001: var(--lav3);
+  --lav30002: #efdef9;
+  --lav3c003: #efdef9;
+  --lav3c004: #100E11;
   --lav4: #343236;
   --lav5: #100E11;
   --lav6: #d7cee1;
   --lav7: #667073;
+  --lav8: #161416;
   transition: var(--transition-duration) background-image;
   background-image: url(scroll-dark.png);
 }
@@ -67,6 +93,41 @@
     height: 54px;
     margin-top: 14.4px;
     fill: var(--logocolor);
+  }
+
+  .artisticon {
+    width: 54px;
+    min-height: 54px;
+    margin-top: 10.7px;
+    margin-bottom: 10.7px;
+    margin-left: 14.4px;
+    margin-right: 14.4px;
+    .cls-1 {fill: var(--lav10001);}
+    .cls-2 {fill: var(--lav10002);}
+    .cls-3 {fill: var(--lav1c003);}
+    .cls-4 {fill: var(--lav1c004);}
+  }
+  .artisticon:hover {
+    .cls-1 {fill: var(--lav20001);}
+    .cls-2 {fill: var(--lav20002);}
+    .cls-3 {fill: var(--lav2c003);}
+    .cls-4 {fill: var(--lav2c004);}
+  }
+  .artisticon:active {
+    .cls-1 {fill: var(--lav30001);}
+    .cls-2 {fill: var(--lav30002);}
+    .cls-3 {fill: var(--lav3c003);}
+    .cls-4 {fill: var(--lav3c004);}
+  }
+
+  .artistlist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 82.8px;
+    min-height: calc(100vh - 82.8px);
+    background-color: var(--lav8);
+    transition: var(--transition-duration) background-color;
   }
   
   .title {
