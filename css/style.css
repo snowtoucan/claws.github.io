@@ -4,13 +4,36 @@
 
 .light-mode {
   --lav1: #c1add4;
+  --lav10001: #9f75c7;
+  --lav10002: #b695d5;
+  --lav1c003: #9f75c7;
+  --lav1c004: #b695d5;
+  --lav1c005: #dddddd;
+  --lav1c006: #9f75c7;
   --lav2: #857490;
+  --lav20001: #7d5e99; /* would be cool to do custom for each icon */
+  --lav20002: #9881ae; /* would be cool to do custom for each icon */
+  --lav2c003: #7d5e99;
+  --lav2c004: #9881ae;
+  --lav2c005: #dddddd;
+  --lav2c006: #7d5e99;
   --lav3: #d3abee;
+  --lav30001: #c894ea; /* ^ maybe? */
+  --lav30002: #a469cc; /* ^ maybe? */
+  --lav3c003: #a469cc;
+  --lav3c004: #c894ea;
+  --lav3c005: #dddddd;
+  --lav3c006: #a469cc;
   --lav4: #E6E2DC;
   --lav5: #ffffff;
   --lav6: #75555d;
   --lav6h: #5b4148;
   --lav6a: #b1415e;
+  --lav7: #8b969a;
+  --lav8: #dddddd;
+  --lav8-rgb: 221, 221, 221;
+  --lav9: #b9b1b99a;
+  --lav10: #b2adb2;
   transition: var(--transition-duration) background-image;
   background-image: url(scroll-light.png);
 }
@@ -22,13 +45,36 @@
 
 .dark-mode {
   --lav1: #c1add4;
+  --lav10001: var(--lav1);
+  --lav10002: #ac82c0;
+  --lav1c003: var(--lav1);
+  --lav1c004: #ac82c0;
+  --lav1c005: var(--lav1);
+  --lav1c006: #100E11;
   --lav2: #857490;
+  --lav20001: var(--lav2);
+  --lav20002: #674c79;
+  --lav2c003: var(--lav2);
+  --lav2c004: #674c79;
+  --lav2c005: var(--lav2);
+  --lav2c006: #100E11;
   --lav3: #d3abee;
+  --lav30001: var(--lav3);
+  --lav30002: #efdef9;
+  --lav3c003: #efdef9;
+  --lav3c004: var(--lav3);
+  --lav3c005: #100E11;
+  --lav3c006: #efdef9;
   --lav4: #343236;
   --lav5: #100E11;
   --lav6: #d7cee1;
   --lav6h: var(--lav2);
   --lav6a: var(--lav3);
+  --lav7: #667073;
+  --lav8: #161416;
+  --lav8-rgb: 22, 20, 22;
+  --lav9: #716b71;
+  --lav10: #a6a1a6;
   transition: var(--transition-duration) background-image;
   background-image: url(scroll-dark.png);
 }
@@ -70,6 +116,165 @@
     margin-top: 14.4px;
     fill: var(--logocolor);
   }
+
+  .artisticon {
+    width: 54px;
+    min-height: 54px;
+    margin-top: 10.7px;
+    margin-bottom: 10.7px;
+    margin-left: 14.4px;
+    margin-right: 14.4px;
+    .cls-1 {fill: var(--lav10001);}
+    .cls-2 {fill: var(--lav10002);}
+    .cls-3 {fill: var(--lav1c003);}
+    .cls-4 {fill: var(--lav1c004);}
+    .cls-5 {fill: var(--lav1c005);}
+    .cls-6 {fill: var(--lav1c006);}
+  }
+  .artisticon:hover {
+    .cls-1 {fill: var(--lav20001);}
+    .cls-2 {fill: var(--lav20002);}
+    .cls-3 {fill: var(--lav2c003);}
+    .cls-4 {fill: var(--lav2c004);}
+    .cls-5 {fill: var(--lav2c005);}
+    .cls-6 {fill: var(--lav2c006);}
+  }
+  .artisticon:active {
+    .cls-1 {fill: var(--lav30001);}
+    .cls-2 {fill: var(--lav30002);}
+    .cls-3 {fill: var(--lav3c003);}
+    .cls-4 {fill: var(--lav3c004);}
+    .cls-5 {fill: var(--lav3c005);}
+    .cls-6 {fill: var(--lav3c006);}
+  }
+
+  .artistlist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(82.8px);
+    height: calc(100vh - 82.8px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--lav8);
+    transition: var(--transition-duration) background-color;
+    margin-right: 10px;
+  }
+  .artistlist.hovered {
+    transition: 0s background-color;
+    background-color: rgba(var(--lav8-rgb), 0%);
+    width: calc(82.8px);
+    padding-right: 10px;
+  }
+
+  .replacebglist{
+    position: absolute;
+    top: 82.8px;
+    width: calc(82.8px);
+    height: 100%;
+    background-color: var(--lav8);
+    transition: var(--transition-duration) background-color;
+    margin: 0;
+  }
+
+  .scrollmargin{
+    position: absolute;
+    top: 82.8px;
+    width: calc(82.8px + 6px);
+    height: 100%;
+  }
+
+  .scroll-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(82.8px - 4px + 12px);
+    height: 100%;
+    margin-top: 2px;
+}
+
+  .scroll-wrapper::-webkit-scrollbar {
+      width: 6px;
+  }
+  .scroll-wrapper::-webkit-scrollbar-track {
+      background: transparent;
+  }
+  .scroll-wrapper::-webkit-scrollbar-thumb {
+      background: var(--lav10);
+      border-radius: 3px;
+      opacity: 30%;
+  }
+  .scroll-wrapper::-webkit-scrollbar-thumb:hover {
+      background: var(--lav9);
+      opacity: 90%;
+  }
+  .scroll-wrapper::-webkit-scrollbar-thumb:active {
+    background: var(--lav10);
+    opacity: 90%;
+  }  
+
+  .namelist {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: calc(82.8px + 14px);
+    top: calc(82.8px + 3.7px);
+    height: 50px;
+  }
+
+  .listname{
+    visibility: hidden;
+    width: fit-content;
+    padding: 10px;
+    margin-top: 16.5px;
+    margin-bottom: 16.5px;
+    background-color: rgba(var(--lav8-rgb), 60%);
+    color: var(--lav10001);
+    transition: var(--transition-duration) background-color;
+    -webkit-user-select: none; /* safari */
+    -moz-user-select: none; /* firefox */
+    -ms-user-select: none; /* ie10+/edge */
+    user-select: none; /* standard */
+  }
+
+  .artistbody-bg{
+    position: absolute;
+    top: 82.8px;
+    left: 82.8px;
+    width: calc(100vw - 82.8px);
+    height: calc(100vh - 82.8px);
+    margin: 0;
+  }
+
+  .artistbody{
+    position: fixed;
+    top: 82.8px;
+    left: 82.8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(100vw - 82.8px - 2px);
+    height: calc(100vh - 82.8px - 2px);
+    margin-top: 2px;
+  }
+
+  .artistbody::-webkit-scrollbar {
+    width: 6px;
+  }
+  .artistbody::-webkit-scrollbar-track {
+      background: transparent;
+  }
+  .artistbody::-webkit-scrollbar-thumb {
+      background: var(--lav10);
+      border-radius: 3px;
+      opacity: 30%;
+  }
+  .artistbody::-webkit-scrollbar-thumb:hover {
+      background: var(--lav9);
+      opacity: 90%;
+  }
+  .artistbody::-webkit-scrollbar-thumb:active {
+    background: var(--lav10);
+    opacity: 100%;
+  }  
 
   .title {
     position: absolute;
@@ -171,6 +376,21 @@
     color: var(--lav6a);
   }
 
+  #limbowlink {
+    color: var(--lav7);
+    min-width: 155px;
+    min-height: fit-content;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  #limbowlink:hover {
+    color: var(--lav2);
+  }
+  #limbowlink:active {
+    color: var(--lav3);
+  }
+
   a {
     --logocolor: var(--lav1);
     color: var(--lav1);
@@ -192,6 +412,56 @@
     fill: var(--logocolor);
     height: 27px;
     margin-left: 2px;
+  }
+  
+  #scene-container {
+    margin: 0;
+    height: calc(100vh - 82.8px);
+    width: 100vw;
+  }
+
+  .background-events {
+    width: 100%;
+    margin: 0;
+  }
+
+  #background-image {
+    width: 100%;
+    margin: 0;
+  }
+
+  #events_mainimage {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    margin: 0;
+  }
+
+  .events_mainimagediv {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: 700px 700px;
+    background-image: url(clawsvsclaws-light.png);
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: var(--transition-duration) opacity; /* Add transition for opacity */
+  }
+
+  .light-mode .events_mainimagediv {
+    transition: var(--transition-duration) opacity;
+    background-image: url(clawsvsclaws-light.png);
+    opacity: 1; /* Set opacity to 1 for light mode */
+  }
+  
+  .dark-mode .events_mainimagediv {
+    transition: var(--transition-duration) opacity;
+    background-image: url(clawsvsclaws-dark.png);
+    opacity: 1; /* Set opacity to 1 for dark mode */
   }
 
   .events-player {
@@ -219,6 +489,17 @@ iframe {
     src: url(https://fonts.gstatic.com/s/medievalsharp/v14/EvOJzAlL3oU5AQl2mP5KdgptMqhwMinUPDg.woff2)
       format('woff2');
   }
+  
+  .join-button {
+    /* Existing CSS properties */
+    border: 2px solid var(--buttoncolour);
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 4px;
+    border-radius: 0;
+    /* Other CSS properties */
+  }  
 
   h1 {
     font-family: 'MedievalSharp';
