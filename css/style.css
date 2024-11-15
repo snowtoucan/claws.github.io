@@ -568,7 +568,7 @@ iframe {
     user-select: none; /* standard */
   }
 
-  @media (max-width: 640px), (max-aspect-ratio: 4/7) { /* phone view */
+  @media (max-width: 640px), (max-aspect-ratio: 0.6) { /* phone view */
     .desktop-menu {
       display: none;
     }
