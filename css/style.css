@@ -1,5 +1,6 @@
 :root {
   --transition-duration: 0.3s; /* Transition duration in seconds */
+  --transition-duration2: 0.2s;
 }
 
 .light-mode {
@@ -436,6 +437,40 @@
     height: 27px;
     margin-right: 6px;
   }
+
+  .dropdown-container {
+    position: fixed;
+    top: calc(82.8px + 2vh + 2vw);
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - (82.8px + 2vh + 2vw));
+    margin: 0;
+    backdrop-filter: blur(10px); /* Blurs the background behind the div */
+    opacity: 0;
+    visibility: hidden; /* Ensures the element is not interactable */
+    transition: opacity var(--transition-duration2) ease-in-out, 
+                visibility var(--transition-duration2) ease-in-out;
+
+  }
+  .dropdown-container.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it interactable */
+  }
+
+    /* Style for the <li> elements (just text, no background or borders) */
+    .dropdown-menu {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .dropdown-menu li {
+      list-style-type: none;
+      position: absolute;
+      font-size: 20px;
+      color: black;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
   
   #scene-container {
     margin: 0;
@@ -538,6 +573,14 @@ iframe {
     padding: 0;
   }
 
+  hm { /*(head menu)*/ 
+    font-family: 'MedievalSharp';
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    font-size: calc(0.283 * (82.8px + 2vh + 2vw));
+  }
+
   h3 {
     font-family: 'MedievalSharp';
     font-weight: normal;
@@ -621,6 +664,9 @@ iframe {
       left: calc(0.964 * (82.8px + 2vh + 2vw));
     }
     h1 {
+      font-size: calc(0.457 * (82.8px + 2vh + 2vw));
+    }
+    h3 {
       font-size: calc(0.457 * (82.8px + 2vh + 2vw));
     }
     .toggle-menu {
