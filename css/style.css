@@ -30,7 +30,7 @@
   --lav6h: #5b4148;
   --lav6a: #b1415e;
   --lav7: #8b969a;
-  --lav8: #dddddd;
+  --lav8: #f5f4f6;
   --lav8-rgb: 221, 221, 221;
   --lav9: #b9b1b99a;
   --lav10: #b2adb2;
@@ -89,19 +89,26 @@
     margin: 0;
     background-color: var(--lav4);
     transition: var(--transition-duration) background-color;
-    background-image: url(scroll-light.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;  
-    background-size: cover;
+    min-width: 446px;
   }
 
   .header {
     z-index: 1000;
     width: 100%;
+    min-height: 82.8px;
     height: 82.8px;
     padding: 0;
     background-color: var(--lav5);
     transition: var(--transition-duration) background-color;
+    min-width: 446px;
+    position: fixed;
+  }
+
+  @media (max-width: 446px) {
+    body {
+      overflow-x: auto; /* Allow side-scrolling */
+      min-width: 446px; /* Set the minimum width to 470px to trigger scroll */
+    }
   }
 
   .footer {
@@ -159,6 +166,8 @@
     background-color: var(--lav8);
     transition: var(--transition-duration) background-color;
     margin-right: 10px;
+    position: fixed;
+    top: 82.8px;
   }
   .artistlist.hovered {
     transition: 0s background-color;
@@ -178,9 +187,10 @@
   }
 
   .scrollmargin{
-    position: absolute;
+    position: fixed;
     top: 82.8px;
     width: calc(82.8px + 6px);
+    min-width: calc(82.8px + 6px);
     height: 100%;
   }
 
@@ -243,6 +253,7 @@
     width: calc(100vw - 82.8px);
     height: calc(100vh - 82.8px);
     margin: 0;
+    min-width: calc(470px - 82.8px);
   }
 
   .artistbody{
@@ -254,6 +265,7 @@
     width: calc(100vw - 82.8px - 2px);
     height: calc(100vh - 82.8px - 2px);
     margin-top: 2px;
+    min-width: calc(470px - 82.8px);
   }
 
   .artistbody::-webkit-scrollbar {
@@ -287,12 +299,6 @@
     user-select: none; /* standard */
   }
   
-  @media screen and (max-width: 768px) {
-    .title {
-      font-size: 37.8px; /* Set the same font size as before */
-    }
-  }
-  
   .head-left {
     margin-left: 19.8px;
   }
@@ -302,6 +308,16 @@
     top: 24px;
     right: 11px;
     display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .desktop-menu {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .mobile-menu {
+    display: none;
     flex-direction: row-reverse;
   }
 
@@ -412,6 +428,13 @@
     fill: var(--logocolor);
     height: 27px;
     margin-left: 2px;
+  }
+
+  .toggle-menu {
+    margin-top: 8.8px; 
+    fill: var(--logocolor);
+    height: 27px;
+    margin-right: 6px;
   }
   
   #scene-container {
@@ -543,4 +566,66 @@ iframe {
     -moz-user-select: none; /* firefox */
     -ms-user-select: none; /* ie10+/edge */
     user-select: none; /* standard */
+  }
+
+  @media (max-width: 640px), (max-aspect-ratio: 4/7) { /* phone view */
+    .desktop-menu {
+      display: none;
+    }
+    .mobile-menu {
+      display: flex;
+    }
+    .body {
+      overflow-x: auto;
+    }
+    .header {
+      height: calc(82.8px + 2vh + 2vw);
+    }
+    .head-left {
+      margin-left: calc(0.24 * (82.8px + 2vh + 2vw));
+    }
+    .scrollmargin {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 6px + 2vh + 2vw);
+    }
+    .artistlist {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw);
+    }
+    .artistlist.hovered{
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw);
+    }
+    .replacebglist {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw);
+    }
+    .scroll-wrapper {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw - 4px + 12px);
+    }
+    .artisticon {
+      width: calc(0.65 * (82.8px + 2vh + 2vw));
+      min-height: calc(0.65 * (82.8px + 2vh + 2vw));
+      margin-top: calc(0.13 * (82.8px + 2vh + 2vw));
+      margin-bottom: calc(0.13 * (82.8px + 2vh + 2vw));
+      margin-left: calc(0.175 * (82.8px + 2vh + 2vw));
+      margin-right: calc(0.175 * (82.8px + 2vh + 2vw));
+    }
+    .logo {
+      height: calc(0.65 * (82.8px + 2vh + 2vw));
+      margin-top: calc(0.175 * (82.8px + 2vh + 2vw));
+    }
+    .title {
+      top: calc(0.272 * (82.8px + 2vh + 2vw));
+      left: calc(0.964 * (82.8px + 2vh + 2vw));
+    }
+    h1 {
+      font-size: calc(0.457 * (82.8px + 2vh + 2vw));
+    }
+    .toggle-menu {
+      margin-top: calc(0.206 * (82.8px + 2vh + 2vw)); 
+      height: calc(0.326 * (82.8px + 2vh + 2vw));
+      margin-right: calc(0.072 * (82.8px + 2vh + 2vw));
+    }
   }
