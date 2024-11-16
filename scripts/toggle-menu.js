@@ -1,6 +1,7 @@
 const toggleMenuButton = document.getElementById('togglemenu-button');
 const svgElement = document.getElementById('mobilemenu');
 const dropdownMenu = document.getElementById('dropdown-container');
+const themeSwitch = document.getElementById('mode-toggle-button-mob');
 
 const svgOriginal = `
     <path class="cls-1" d="M1.07,0L0,1.5c2.47,3.9,5.02,8.51,7.34,13.84,3.96,9.1,6.01,17.49,7.11,24.22,27.85-3.42,58.42-5.83,91.35-6.46,49.07-.93,93.46,2.29,132.07,7.33.43-.55.85-1.1,1.28-1.65-2.31-4.29-4.63-9.06-6.81-14.3-3.59-8.63-6.04-16.71-7.74-23.86-33.12,3.27-69.64,5.36-109.06,5.35C74,5.97,35.66,3.61,1.07,0Z"/>
@@ -19,8 +20,10 @@ toggleMenuButton.addEventListener('click', (e) => {
 
     if (isToggled) {
         dropdownMenu.classList.remove('show'); // Trigger fade-out
+        themeSwitch.classList.remove('show');
     } else {
         dropdownMenu.classList.add('show'); // Trigger fade-in
+        themeSwitch.classList.add('show');
     }
 
     isToggled = !isToggled;
