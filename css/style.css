@@ -328,8 +328,10 @@
     opacity: 0;
     overflow: hidden; /* Prevents the submenu from showing when collapsed */
     transition: opacity var(--transition-duration) ease-in-out, 
-                max-height var(--transition-duration) ease-in-out,
+                max-height var(--transition-duration) ease-in-out, /* Transition max-height instead of visibility */
+                width var(--transition-duration) ease-in-out; /* Added width transition for better control */
   }
+  
   .submenu.show {
     width: auto;
     opacity: 1;
@@ -357,7 +359,8 @@
     opacity: 1;
     overflow: hidden; /* Prevents the submenu from showing when collapsed */
     transition: opacity var(--transition-duration) ease-in-out, 
-                max-height var(--transition-duration) ease-in-out, /* Transition max-height instead of visibility */
+                max-height var(--transition-duration) ease-in-out,
+                transform var(--transition-duration) ease-in-out;
     }
   .head-right.hidden {
     padding: 0;
