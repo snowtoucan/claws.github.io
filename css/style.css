@@ -685,12 +685,12 @@ iframe {
       font-size: calc(0.457 * (82.8px + 2vh + 2vw));
     }
     .toggle-menu {
-      margin-top: calc(0.206 * (82.8px + 2vh + 2vw)); 
+      margin-top: calc(0.206 * (82.8px + 2.8vh + 2.8vw)); 
       height: calc(0.326 * (82.8px + 2vh + 2vw));
       margin-right: calc(0.072 * (82.8px + 2vh + 2vw));
     }
     .toggle-themes {
-      margin-top: calc(0.206 * (82.8px + 2vh + 2vw) - 7.3px); 
+      margin-top: calc(0.206 * (82.8px + 2.4vh + 2.4vw) - 7.3px); 
       fill: var(--logocolor);
       height: calc(0.326 * (82.8px + 2vh + 2vw));
     }
