@@ -611,6 +611,21 @@ iframe {
     user-select: none; /* standard */
   }
 
+  #togglemenu-button {
+    margin-left: 18px;
+  }
+
+  #mode-toggle-button-mob {
+    opacity: 0;
+    visibility: hidden; /* Ensures the element is not interactable */
+    transition: opacity var(--transition-duration2) ease-in-out, 
+                visibility var(--transition-duration2) ease-in-out;
+  }
+  #mode-toggle-button-mob.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
   @media (max-width: 640px), (max-aspect-ratio: 0.6) { /* phone view */
     .desktop-menu {
       display: none;
@@ -673,5 +688,10 @@ iframe {
       margin-top: calc(0.206 * (82.8px + 2vh + 2vw)); 
       height: calc(0.326 * (82.8px + 2vh + 2vw));
       margin-right: calc(0.072 * (82.8px + 2vh + 2vw));
+    }
+    .toggle-themes {
+      margin-top: calc(0.206 * (82.8px + 2vh + 2vw) - 7.3px); 
+      fill: var(--logocolor);
+      height: calc(0.326 * (82.8px + 2vh + 2vw));
     }
   }
