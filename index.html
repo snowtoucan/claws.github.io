@@ -20,33 +20,55 @@
 
             <div class="flexhead-right"> 
                 <div class="desktop-menu">
+                    <li id="menu-back" class="menu-back"><a class="backbutton" href="#" onclick="goBack()"><h2>></h2></a></li>    
+                        <div class="menu-container">
+                            <div class="menu-wrapper">
+                                <li class="head-right">
+                                    <a href="#" onclick="showSubMenu('about')">
+                                        <h2 unselectable="on" class="noselect">about</h2>
+                                    </a>
+                                </li>
+                                <div class="submenu about-submenu">
+                                    <!--<li style="padding-right: 7.8px; padding-left: 2.8px;"><h2 unselectable="on" class="menutitle">about</h2></li>-->
+                                    <!--<li><h2 unselectable="on" class="menublock">|</h2></li>-->
+                                    <li><a href="artists.html"><h2>artists</h2></a></li>
+                                    <li><a href="#"><h2>releases</h2></a></li>
+                                    <li><a href="#"><h2>history</h2></a></li>
+                                    <li><a href="#"><h2>news</h2></a></li>
+                                    <li><a href="#" onclick="showSubMenu('enquiries')"><h2>enquiries</h2></a></li>
+                                </div>
+                                <div class="submenu enquiries-submenu">
+                                    <li><a href="#"><h2>licensing</h2></a></li>
+                                    <li><a href="#"><h2>booking</h2></a></li>
+                                    <li><a href="#"><h2>contact us</h2></a></li>
+                                </div>
+                                <li class="head-right">
+                                    <a href="#">
+                                        <h2 unselectable="on" class="noselect">shop</h2>
+                                    </a>
+                                </li>
+                                <li class="head-right">
+                                    <a href="#" onclick="showSubMenu('listen')">
+                                        <h2 unselectable="on" class="noselect">listen</h2>
+                                    </a>
+                                </li>
+                                <div class="submenu listen-submenu">
+                                    <li><a href="https://soundcloud.com/claws-world"><h2>soundcloud</h2></a></li>
+                                    <li><a href="https://www.youtube.com/@claws-world"><h2>youtube</h2></a></li>
+                                    <li><a href="https://claws2.bandcamp.com"><h2>bandcamp</h2></a></li>
+                                </div>
+                                <li class="head-right">
+                                    <a href="events.html"><h2 unselectable="on" class="noselect">events</h2></a>
+                                </li>
+                            </div>
+                        </div>
                     <li>
                         <a href="#" data-tracking="theme-switch-dark" id="mode-toggle-button">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 397.78 393.36' class="toggle-themes">
                             <path d='m252.78,244.58c-56.36,0-102.05-45.69-102.05-102.05,0-29.05,12.14-55.27,31.62-73.85-61.93,8.74-109.57,61.95-109.57,126.29,0,70.45,57.11,127.56,127.56,127.56,64.34,0,117.55-47.64,126.29-109.57-18.58,19.48-44.8,31.62-73.85,31.62Z'/>
                         </svg>
                         </a>
-                    </li>          
-                    <li class="head-right">
-                        <a href="coming-soon.html">
-                            <h2 unselectable="on" class="noselect">support</h2>
-                        </a>
-                    </li>
-                    <li class="head-right">
-                        <a href="coming-soon.html">
-                            <h2 unselectable="on" class="noselect">listen</h2>
-                        </a>
-                    </li>     
-                    <li class="head-right">
-                        <a href="coming-soon.html">
-                            <h2 unselectable="on" class="noselect">shop</h2>
-                        </a>
-                    </li>
-                    <li class="head-right">
-                        <a href="coming-soon.html">
-                            <h2 unselectable="on" class="noselect">about</h2>
-                        </a>
-                    </li>
+                    </li>   
                 </div>
                 <div class="mobile-menu">
                     <a href="#" id="togglemenu-button">
@@ -55,10 +77,18 @@
                         <path class="cls-1" d="M1.07,97.27l-1.07,1.5c2.47,3.9,5.02,8.51,7.34,13.84,3.96,9.1,6.01,17.49,7.11,24.22,27.85-3.42,58.42-5.83,91.35-6.46,49.07-.93,93.46,2.29,132.07,7.33.43-.55.85-1.1,1.28-1.65-2.31-4.29-4.63-9.06-6.81-14.3-3.59-8.63-6.04-16.71-7.74-23.86-33.12,3.27-69.64,5.36-109.06,5.35-41.55-.02-79.89-2.37-114.48-5.99Z"/>
                         <path class="cls-1" d="M1.07,194.53l-1.07,1.5c2.47,3.9,5.02,8.51,7.34,13.84,3.96,9.1,6.01,17.49,7.11,24.22,27.85-3.42,58.42-5.83,91.35-6.46,49.07-.93,93.46,2.29,132.07,7.33.43-.55.85-1.1,1.28-1.65-2.31-4.29-4.63-9.06-6.81-14.3-3.59-8.63-6.04-16.71-7.74-23.86-33.12,3.27-69.64,5.36-109.06,5.35-41.55-.02-79.89-2.37-114.48-5.99Z"/></svg>
                     </a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <li>
-                            <a><h2>test</h2></a>
-                        </li>
+                    <a href="#" data-tracking="theme-switch-dark" id="mode-toggle-button-mob">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 397.78 393.36' class="toggle-themes">
+                            <path d='m252.78,244.58c-56.36,0-102.05-45.69-102.05-102.05,0-29.05,12.14-55.27,31.62-73.85-61.93,8.74-109.57,61.95-109.57,126.29,0,70.45,57.11,127.56,127.56,127.56,64.34,0,117.55-47.64,126.29-109.57-18.58,19.48-44.8,31.62-73.85,31.62Z'/>
+                        </svg>
+                    </a>
+                    <div class="dropdown-container" id="dropdown-container">
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><hm unselectable="on" class="noselect">about</hm></a></li>
+                            <li><a href="#"><hm unselectable="on" class="noselect">shop</hm></a></li>
+                            <li><a href="#"><hm unselectable="on" class="noselect">listen</hm></a></li>
+                            <li><a href="#"><hm unselectable="on" class="noselect">support</hm></a></li>
+                          </ul>
                     </div>
                 </div>
             </div>   
