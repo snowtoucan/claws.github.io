@@ -95,58 +95,40 @@
         </div>
     </header>
 
-    <div>
-        <h3 id="maintext" style="top: calc(82.8px + 10vh);">Claws Festival - March</h3>
+    <div class="eventsbody">
+        <div class="events-content">
+            <svg id="SMPTE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+                <rect class="dls-1" width="171.43" height="600.03"/>
+                <rect class="dls-2" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-3" x="171.43" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-4" x="342.86" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-5" x="514.29" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-6" x="685.71" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-7" x="857.14" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-8" x="1028.57" y="600.03" width="171.43" height="75"/>
+                <rect class="dls-9" x="1028.57" y="675.03" width="171.43" height="224.97"/>
+                <rect class="dls-10" x="971.43" y="675.03" width="57.14" height="224.97"/>
+                <rect class="dls-11" x="914.29" y="675.03" width="57.14" height="224.97"/>
+                <rect class="dls-12" x="857.14" y="675.03" width="57.14" height="224.97"/>
+                <rect class="dls-13" x="642.86" y="675.03" width="214.29" height="224.97"/>
+                <rect class="dls-14" x="428.57" y="675.03" width="214.29" height="224.97"/>
+                <rect class="dls-15" x="214.29" y="675.03" width="214.29" height="224.97"/>
+                <rect class="dls-16" y="675.03" width="214.29" height="224.97"/>
+                <rect class="dls-17" x="171.43" width="171.43" height="600.03"/>
+                <rect class="dls-18" x="342.86" width="171.43" height="600.03"/>
+                <rect class="dls-19" x="514.29" width="171.43" height="600.03"/>
+                <rect class="dls-20" x="685.71" width="171.43" height="600.03"/>
+                <rect class="dls-21" x="857.14" width="171.43" height="600.03"/>
+                <rect class="dls-22" x="1028.57" width="171.43" height="600.03"/>
+              </svg>
+        </div>
     </div>
-    <div>
-        <h2 id="subtext" style="top: calc(10vh + 168px);">3PM UTC, Sunday 24th March</h2>
-    </div>
-
-    <div class="events-player">
-        <iframe src="https://www.youtube.com/embed/CvNIQoOsYVo?si=WifCQw5gaeiSU99e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-    
-    <div><h2 class="events_para1" style="top: calc(10vh + 820px);">Claws Festival March 2024 is the 8th mix in a series celebrating music within the <a href="https://claws.world/discord" id="paralink" target="_blank"><u>Claws Community</u></a>.</h2></div>
-    <div><h2 class="events_para1" style="top: calc(10vh + 913px);">March 2024 was curated by six artists, all with sections lasting around 10 minutes. These include: <a href="https://instagram.com/snowtoucan" id="paralink" target="_blank">snowtoucan</a>, <a href="https://soundcloud.com/carlzeer" id="paralink" target="_blank">Carl Zeer</a>, <a href="https://soundcloud.com/lvndquist" id="paralink" target="_blank">lvndquist</a>, <a href="https://soundcloud.com/filoomusic" id="paralink" target="_blank">Filoo</a>, <a href="https://soundcloud.com/fonssmusic" id="paralink" target="_blank">Fonss</a> & <a href="https://soundcloud.com/grnvlrmusic" id="paralink" target="_blank">GRNVLR</a>.</h2></div>
-    <div><h2 class="events_para1" style="top: calc(10vh + 1032px);">Previous festivals often included a significant proportion of unreleased demos / IDs. However, March 2024 marks the first set that is 100% unreleased. All of the songs played will be something you haven't listened to before!</h2></div>
-    <div><h2 class="events_para1" id="countdown" style="top: calc(10vh + 1149px);">The set will be livestreamed on <a href="https://www.youtube.com/@claws-world" id="paralink" target="_blank"><u>YouTube</u></a> in <span id="countdownTimer">0d 0h 0m 0s</span> &nbsp&nbsp&nbsp&nbsp and later uploaded to <a href="https://soundcloud.com/claws-world" id="paralink" target="_blank">SoundCloud</a>. Old festivals can be found in the <a href="https://soundcloud.com/claws-world/sets/claws-festivals" id="paralink" target="_blank"><u>Claws Festivals</u></a> playlist.</h2></div>
-    <div><h2 class="events_para1"  style="top: calc(10vh + 1241px);">The tracklist will be announced shortly before the event and updates will be posted on the <a href="https://claws.world/discord" id="paralink" target="_blank"><u>Claws Discord</u></a> and <a href="https://instagram.com/claws-world" id="paralink" target="_blank"><u>Instagram</u></a>.</h2></div>
-    <div><h2 class="events_para1"  style="top: calc(10vh + 1305px);">We hope to see you there!</h2></div>
-
-    <footer><div class="footer" style="position: absolute; top: calc(10vh + 1355px);"></div></footer>
 
     <script src="scripts/toggle-modes.js"></script>
-    <script>
-        // Set the date and time to countdown to
-        const countdownDate = new Date("March 24, 2024 15:00:00").getTime();
-
-        // Update the countdown every second
-        const countdown = setInterval(function () {
-            // Get the current date and time
-            const now = new Date().getTime();
-
-            // Calculate the time remaining
-            const distance = countdownDate - now;
-
-            // Calculate days, hours, minutes, and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the countdown
-            document.getElementById("countdownTimer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-
-            // If the countdown is over, stop the countdown
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById("countdownTimer").innerHTML = "0d 0h 0m 0s";
-            }
-        }, 1000); // Update every second
-    </script>
-        <script src="scripts/toggle-menu.js"></script>
-        <script src="scripts/desktop-menu.js"></script>
-        <script src="scripts/phone-menu.js"></script>
+    <script src="scripts/toggle-menu.js"></script>
+    <script src="scripts/desktop-menu.js"></script>
+    <script src="scripts/phone-menu.js"></script>
+    <script src="scripts/events.js"></script>
 </body>
 
 </html>

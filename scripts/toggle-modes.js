@@ -35,6 +35,8 @@ function toggleMode(event) {
     var toggleButton = document.getElementById('mode-toggle-button-mob');
     toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 397.78 393.36" class="toggle-themes"><path d="m252.78,244.58c-56.36,0-102.05-45.69-102.05-102.05,0-29.05,12.14-55.27,31.62-73.85-61.93,8.74-109.57,61.95-109.57,126.29,0,70.45,57.11,127.56,127.56,127.56,64.34,0,117.55-47.64,126.29-109.57-18.58,19.48-44.8,31.62-73.85,31.62Z"></path></svg>';
   }
+
+  applyRandomizedColors();
 }
 
 var storedMode = localStorage.getItem('mode');
