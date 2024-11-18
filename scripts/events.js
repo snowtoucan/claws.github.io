@@ -51,10 +51,22 @@ function initializeColors() {
         const randomTransitionDuration = getRandomInRange(1, 10) + 's'; // Between 1 and 10 seconds
         rect.style.transition = `fill ${randomTransitionDuration} ease-in-out`;
 
-        // Add event listener for mouse enter to trigger color change with 1 second transition
+        // Adding event listeners
         rect.addEventListener("mouseenter", () => {
-            rect.style.transition = "fill 1s ease-in-out"; // 1 second transition on hover
+            rect.style.transition = "fill 1s ease-in-out"; // 1-second transition on hover
             rect.style.fill = getRandomColor(); // Change color on hover
+        });
+
+        // For touch devices: 'touchstart' event
+        rect.addEventListener("touchstart", () => {
+            rect.style.transition = "fill 1s ease-in-out"; // 1-second transition on touch
+            rect.style.fill = getRandomColor(); // Change color on touch
+        });
+
+        // For click: 'click' event
+        rect.addEventListener("click", () => {
+            rect.style.transition = "fill 1s ease-in-out"; // 1-second transition on click
+            rect.style.fill = getRandomColor(); // Change color on click
         });
     });
 }

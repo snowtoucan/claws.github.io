@@ -276,9 +276,7 @@
   }
 
   .events-content {
-    margin: 10vw;
-    margin-top: calc(30px + 1vh);
-    width: 80vw;
+    width: 64vw;
   }
 
   .dls-1, .dls-2, .dls-3, .dls-4, .dls-5, .dls-6, .dls-7, .dls-8, .dls-9, .dls-10, .dls-11, .dls-12, .dls-13, .dls-14, .dls-15, .dls-16, .dls-17, .dls-18, .dls-19, .dls-20, .dls-21, .dls-22 {
