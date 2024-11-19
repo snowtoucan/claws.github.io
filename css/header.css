@@ -44,7 +44,7 @@ header {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  padding-bottom: 7.2px;
+  padding-bottom: 7.2px; /* this is for bringing the scroll bar further down */
   height: 40.375px;
   max-width: 55vw;
   scrollbar-width: none; /* Hide scrollbar by default for Firefox (if any) */
@@ -155,10 +155,8 @@ header {
 }
 
 .toggle-themes {
-  margin-top: -3px; 
   fill: var(--logocolor);
-  height: 27px;
-  margin-left: 2px;
+  height: calc(0.8 * 23.4px); /* fraction of h2 */
 }
 
 .toggle-menu {

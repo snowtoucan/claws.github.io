@@ -7,7 +7,7 @@ const backButton = document.getElementById('menu-back');
 // Function to show a submenu and add it to the history stack
 function showSubMenu(menu) {
     // Hide all top-level menu items
-    const allHeadRightElements = document.querySelectorAll('.head-right');
+    const allHeadRightElements = document.querySelectorAll('.li-head.menu');
     allHeadRightElements.forEach(element => {
         element.classList.add('hidden');
     });
@@ -48,7 +48,7 @@ function goBack() {
         showSubMenu(previousMenu);
     } else {
         // If we're at the main menu level, show the main menu and hide the back button
-        const allHeadRightElements = document.querySelectorAll('.head-right');
+        const allHeadRightElements = document.querySelectorAll('.li-head.menu');
         allHeadRightElements.forEach(element => {
             element.classList.remove('hidden');
         });

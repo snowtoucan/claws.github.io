@@ -1,3 +1,5 @@
+// THIS WAS TO TOGGLE THE PHONE MENU I THINK
+
 const toggleMenuButton = document.getElementById('togglemenu-button');
 const svgElement = document.getElementById('mobilemenu');
 const dropdownMenu = document.getElementById('dropdown-container');
