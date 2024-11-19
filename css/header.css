@@ -13,7 +13,6 @@ header {
   margin-top: 14.4px;
   width: fit-content;
   display: flex;
-  flex-direction: row;
 }
 .head-left a {
   display: flex;
@@ -24,7 +23,6 @@ header {
   top: 24px;
   right: 11px;
   display: flex;
-  flex-direction: row;
 }
 
 .logo {
@@ -40,7 +38,6 @@ header {
 
 .desktop-menu {
   display: flex;
-  flex-direction: row;
 }
 
 .menu-container {
@@ -78,7 +75,6 @@ header {
 
 .menu-wrapper {
   display: flex;
-  flex-direction: row;
   align-items: center;
   width: fit-content;
   height: 38px;
@@ -87,7 +83,6 @@ header {
 .submenu {
   display: flex;
   width: 0;
-  flex-direction: row;
   opacity: 0;
   overflow: hidden; /* Prevents the submenu from showing when collapsed */
   transition: opacity 0.3s ease-in-out, 
@@ -102,7 +97,6 @@ header {
 .menu-back {
   padding: 0;
   display: flex;
-  flex-direction: row;
   opacity: 0;
   overflow: hidden; /* Prevents the submenu from showing when collapsed */
   transform: translateX(10%);
@@ -119,7 +113,6 @@ header {
   display: flex;
   height: auto;
   width: auto;
-  flex-direction: row;
   opacity: 1;
   overflow: hidden; /* Prevents the submenu from showing when collapsed */
   transition: opacity 0.3s ease-in-out, 
