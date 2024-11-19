@@ -1,3 +1,9 @@
+.events-containter {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+}
+
 .events-content {
   width: 64vw;
 }

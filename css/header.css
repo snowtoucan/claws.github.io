@@ -125,7 +125,12 @@ header {
   opacity: 0;
 }
 .li-head.title {
-    padding-left: 0;
+  padding-left: 0;
+}
+.li-head.themes {
+  padding-bottom: 7.2px; /* to match container (who has padding for scroll) */
+  margin-right: 4px;
+  margin-left: 1px
 }
 
 .li-head, .submenu > div {
@@ -157,6 +162,7 @@ header {
 .toggle-themes {
   fill: var(--logocolor);
   height: calc(0.8 * 23.4px); /* fraction of h2 */
+  padding: 1px;
 }
 
 .toggle-menu {
@@ -168,15 +174,4 @@ header {
 
 #togglemenu-button {
   margin-left: 18px;
-}
-
-#mode-toggle-button-mob {
-  opacity: 0;
-  visibility: hidden; /* Ensures the element is not interactable */
-  transition: opacity 0.3s ease-in-out, 
-              visibility 0.3s ease-in-out;
-}
-#mode-toggle-button-mob.show {
-  opacity: 1;
-  visibility: visible;
 }

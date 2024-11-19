@@ -148,5 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000); // Change transition after 2 seconds
 
     // Example usage of the toggleMode function (e.g., binding to a button):
-    document.getElementById("toggleButton").addEventListener("click", toggleMode);
+    // gives error
+    //document.getElementById("toggleButton").addEventListener("click", toggleMode);
 });

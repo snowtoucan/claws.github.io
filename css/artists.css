@@ -26,7 +26,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     background-color: var(--lav8);
-    transition: var(--transition-duration) background-color;
+    transition: 0.3s background-color;
     margin-right: 10px;
     position: fixed;
     top: 82.8px;
@@ -38,14 +38,13 @@
     padding-right: 10px;
   }
 
-
   .replacebglist{
     position: absolute;
     top: 82.8px;
     width: calc(82.8px);
     height: 100%;
     background-color: var(--lav8);
-    transition: var(--transition-duration) background-color;
+    transition: 0.3s background-color;
     margin: 0;
   }
 
@@ -90,9 +89,6 @@
     opacity: 90%;
 }
 
-
-
-
 .artistbody-bg{
     position: absolute;
     top: 82.8px;
@@ -102,7 +98,7 @@
     margin: 0;
     min-width: calc(470px - 82.8px);
     background-color: var(--lav4);
-    transition: var(--transition-duration) background-color;
+    transition: 0.3s background-color;
   }
 
   .artistbody{
@@ -116,7 +112,7 @@
     margin-top: 2px;
     min-width: calc(470px - 82.8px);
     background-color: var(--lav4);
-    transition: var(--transition-duration) background-color;
+    transition: 0.3s background-color;
   }
 
   .artistbody::-webkit-scrollbar {
@@ -137,48 +133,4 @@
   .artistbody::-webkit-scrollbar-thumb:active {
     background: var(--lav10);
     opacity: 100%;
-  }  
-
-
-  @media (max-width: 640px), (max-aspect-ratio: 0.6) { /* phone view */
-    .scrollmargin {
-      top: calc(82.8px + 2vh + 2vw);
-      width: calc(82.8px + 6px + 2vh + 2vw);
-    }
-    .artistbody {
-      top: calc(82.8px + 2vh + 2vw);
-      left: calc(82.8px + 2vh + 2vw);
-      height: calc(100vh - (82.8px + 2vh + 2vw));
-      width: calc(100vw - (82.8px + 2vh + 2vw));
-    }
-    .artistbody-bg {
-      top: calc(82.8px + 2vh + 2vw);
-      left: calc(82.8px + 2vh + 2vw);
-      height: calc(100vh - (82.8px + 2vh + 2vw));
-      width: calc(100vw - (82.8px + 2vh + 2vw));
-    }
-    .artistlist {
-      top: calc(82.8px + 2vh + 2vw);
-      width: calc(82.8px + 2vh + 2vw);
-    }
-    .artistlist.hovered{
-      top: calc(82.8px + 2vh + 2vw);
-      width: calc(82.8px + 2vh + 2vw);
-    }
-    .replacebglist {
-      top: calc(82.8px + 2vh + 2vw);
-      width: calc(82.8px + 2vh + 2vw);
-    }
-    .scroll-wrapper {
-      top: calc(82.8px + 2vh + 2vw);
-      width: calc(82.8px + 2vh + 2vw - 4px + 12px);
-    }
-    .artisticon {
-      width: calc(0.65 * (82.8px + 2vh + 2vw));
-      min-height: calc(0.65 * (82.8px + 2vh + 2vw));
-      margin-top: calc(0.13 * (82.8px + 2vh + 2vw));
-      margin-bottom: calc(0.13 * (82.8px + 2vh + 2vw));
-      margin-left: calc(0.175 * (82.8px + 2vh + 2vw));
-      margin-right: calc(0.175 * (82.8px + 2vh + 2vw));
-    }
-  }
+  } 
