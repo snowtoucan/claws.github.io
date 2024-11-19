@@ -1,0 +1,184 @@
+.artisticon {
+    width: 54px;
+    min-height: 54px;
+    margin-top: 10.7px;
+    margin-bottom: 10.7px;
+    margin-left: 14.4px;
+    margin-right: 14.4px;
+    .cls-1 {fill: var(--lav10001);}
+    .cls-2 {fill: var(--lav10002);}
+  }
+  .artisticon:hover {
+    .cls-1 {fill: var(--lav20001);}
+    .cls-2 {fill: var(--lav20002);}
+  }
+  .artisticon:active {
+    .cls-1 {fill: var(--lav30001);}
+    .cls-2 {fill: var(--lav30002);}
+  }
+
+  .artistlist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(82.8px);
+    height: calc(100vh - 82.8px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--lav8);
+    transition: var(--transition-duration) background-color;
+    margin-right: 10px;
+    position: fixed;
+    top: 82.8px;
+  }
+  .artistlist.hovered {
+    transition: 0s background-color;
+    background-color: rgba(var(--lav8-rgb), 0%);
+    width: calc(82.8px);
+    padding-right: 10px;
+  }
+
+
+  .replacebglist{
+    position: absolute;
+    top: 82.8px;
+    width: calc(82.8px);
+    height: 100%;
+    background-color: var(--lav8);
+    transition: var(--transition-duration) background-color;
+    margin: 0;
+  }
+
+  .scrollmargin{
+    position: fixed;
+    top: 82.8px;
+    width: calc(82.8px + 6px);
+    min-width: calc(82.8px + 6px);
+    height: 100%;
+  }
+
+  .scroll-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(82.8px - 4px + 12px);
+    height: 100%;
+    margin-top: 2px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--lav10);
+    border-radius: 3px;
+    opacity: 30%;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--lav9);
+    opacity: 90%;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb:active {
+    background: var(--lav10);
+    opacity: 90%;
+}
+
+
+
+
+.artistbody-bg{
+    position: absolute;
+    top: 82.8px;
+    left: 82.8px;
+    width: calc(100vw - 82.8px);
+    height: calc(100vh - 82.8px);
+    margin: 0;
+    min-width: calc(470px - 82.8px);
+    background-color: var(--lav4);
+    transition: var(--transition-duration) background-color;
+  }
+
+  .artistbody{
+    position: fixed;
+    top: 82.8px;
+    left: 82.8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(100vw - 82.8px - 2px);
+    height: calc(100vh - 82.8px - 2px);
+    margin-top: 2px;
+    min-width: calc(470px - 82.8px);
+    background-color: var(--lav4);
+    transition: var(--transition-duration) background-color;
+  }
+
+  .artistbody::-webkit-scrollbar {
+    width: 6px;
+  }
+  .artistbody::-webkit-scrollbar-track {
+      background: transparent;
+  }
+  .artistbody::-webkit-scrollbar-thumb {
+      background: var(--lav10);
+      border-radius: 3px;
+      opacity: 30%;
+  }
+  .artistbody::-webkit-scrollbar-thumb:hover {
+      background: var(--lav9);
+      opacity: 90%;
+  }
+  .artistbody::-webkit-scrollbar-thumb:active {
+    background: var(--lav10);
+    opacity: 100%;
+  }  
+
+
+  @media (max-width: 640px), (max-aspect-ratio: 0.6) { /* phone view */
+    .scrollmargin {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 6px + 2vh + 2vw);
+    }
+    .artistbody {
+      top: calc(82.8px + 2vh + 2vw);
+      left: calc(82.8px + 2vh + 2vw);
+      height: calc(100vh - (82.8px + 2vh + 2vw));
+      width: calc(100vw - (82.8px + 2vh + 2vw));
+    }
+    .artistbody-bg {
+      top: calc(82.8px + 2vh + 2vw);
+      left: calc(82.8px + 2vh + 2vw);
+      height: calc(100vh - (82.8px + 2vh + 2vw));
+      width: calc(100vw - (82.8px + 2vh + 2vw));
+    }
+    .artistlist {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw);
+    }
+    .artistlist.hovered{
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw);
+    }
+    .replacebglist {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw);
+    }
+    .scroll-wrapper {
+      top: calc(82.8px + 2vh + 2vw);
+      width: calc(82.8px + 2vh + 2vw - 4px + 12px);
+    }
+    .artisticon {
+      width: calc(0.65 * (82.8px + 2vh + 2vw));
+      min-height: calc(0.65 * (82.8px + 2vh + 2vw));
+      margin-top: calc(0.13 * (82.8px + 2vh + 2vw));
+      margin-bottom: calc(0.13 * (82.8px + 2vh + 2vw));
+      margin-left: calc(0.175 * (82.8px + 2vh + 2vw));
+      margin-right: calc(0.175 * (82.8px + 2vh + 2vw));
+    }
+  }

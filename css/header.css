@@ -1,0 +1,191 @@
+.header {
+  padding: 0;
+  width: 100vw;
+  height: 82.8px;
+  position: fixed;
+  background-color: var(--lav5);
+  transition: 0.3s background-color;
+  z-index: 1000;
+}
+
+.head-left {
+  margin-left: 11px;
+  margin-top: 14.4px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+.head-left a {
+  display: flex;
+}
+
+.head-right {
+  position: absolute;
+  top: 24px;
+  right: 11px;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  height: 54px;
+  fill: var(--logocolor);
+  padding-top: 1px; /* svg was cutting off slightly, this helps avoid it happening*/
+  padding-bottom: 1px; 
+}
+
+.title {
+  display: flex;
+}
+
+.desktop-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 7.2px;
+  height: 40.375px;
+  max-width: 55vw;
+  scrollbar-width: none; /* Hide scrollbar by default for Firefox (if any) */
+}
+
+.menu-container::-webkit-scrollbar {
+  height: 6px; /* Horizontal scrollbar height */
+  background-color: transparent; /* Fully transparent background */
+}
+.menu-container::-webkit-scrollbar-thumb {
+  background: var(--lav10); /* Light gray */
+  border-radius: 3px;
+  opacity: 0; /* Default: invisible */
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+.menu-container:hover::-webkit-scrollbar-thumb {
+  opacity: calc(0.3*0.5); /* Fully visible on hover */
+  background: var(--lav9); /* Darker gray */
+}
+.menu-container::-webkit-scrollbar-thumb:hover {
+  opacity: calc(0.9*0.5);
+  background: var(--lav9);
+}
+.menu-container::-webkit-scrollbar-thumb:active {
+  opacity: calc(0.9*0.5);
+  background: var(--lav10);
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  height: 38px;
+}
+
+.submenu {
+  display: flex;
+  width: 0;
+  flex-direction: row;
+  opacity: 0;
+  overflow: hidden; /* Prevents the submenu from showing when collapsed */
+  transition: opacity 0.3s ease-in-out, 
+              max-height 0.3s ease-in-out, /* Transition max-height instead of visibility */
+              width 0.3s ease-in-out; /* Added width transition for better control */
+}  
+.submenu.show {
+  width: auto;
+  opacity: 1;
+}
+
+.menu-back {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  overflow: hidden; /* Prevents the submenu from showing when collapsed */
+  transform: translateX(10%);
+  transition: none; /* No animation by default */
+}
+.menu-back.show {
+  transition: opacity 0.3s ease-in-out, 
+              transform 0.3s ease-in-out;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.li-head {
+  display: flex;
+  height: auto;
+  width: auto;
+  flex-direction: row;
+  opacity: 1;
+  overflow: hidden; /* Prevents the submenu from showing when collapsed */
+  transition: opacity 0.3s ease-in-out, 
+              max-height 0.3s ease-in-out,
+              transform 0.3s ease-in-out;
+  }
+.li-head.hidden {
+  padding: 0;
+  width: 0;
+  opacity: 0;
+}
+.li-head.title {
+    padding-left: 0;
+}
+
+.li-head, .submenu > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto; /* Prevent flex items from shrinking */
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: row-reverse;
+}
+
+.backbutton{
+  color: var(--lav2);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6.4px;
+  padding-bottom: 7.8px;
+}
+.backbutton:hover {
+  color: var(--lav1);
+}
+.backbutton:active {
+  color: var(--lav3);
+}
+
+.toggle-themes {
+  margin-top: -3px; 
+  fill: var(--logocolor);
+  height: 27px;
+  margin-left: 2px;
+}
+
+.toggle-menu {
+  margin-top: 8.8px; 
+  fill: var(--logocolor);
+  height: 27px;
+  margin-right: 6px;
+}
+
+#togglemenu-button {
+  margin-left: 18px;
+}
+
+#mode-toggle-button-mob {
+  opacity: 0;
+  visibility: hidden; /* Ensures the element is not interactable */
+  transition: opacity 0.3s ease-in-out, 
+              visibility 0.3s ease-in-out;
+}
+#mode-toggle-button-mob.show {
+  opacity: 1;
+  visibility: visible;
+}
