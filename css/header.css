@@ -101,12 +101,14 @@ header {
   overflow: hidden; /* Prevents the submenu from showing when collapsed */
   transform: translateX(10%);
   transition: none; /* No animation by default */
+  z-index: -1000; /* ensures it's not selectable when at main menu */
 }
 .menu-back.show {
   transition: opacity 0.3s ease-in-out, 
               transform 0.3s ease-in-out;
   transform: translateX(0);
   opacity: 1;
+  z-index: 1500;
 }
 
 .li-head {

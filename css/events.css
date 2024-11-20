@@ -1,7 +1,7 @@
 .events-container {
   display: grid;
   grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(0, 400px);
-  grid-template-rows: 82.8px minmax(calc(450px - 82.8px), calc((100vw - 400px)*(3/4) - 82.8px)) 82.8px 207px 1000px;
+  grid-template-rows: 82.8px minmax(calc(450px - 82.8px), calc((100vw - 400px)*(3/4) - 82.8px)) 82.8px calc(100vh - 615.6px) 1000px;
 }
 
 .events-content {
@@ -11,7 +11,7 @@
 .events-interactive {
   position: sticky;
   top: 0;
-  height: calc(100vh - 82.8px);
+  min-height: calc(100vh - 82.8px);
   grid-row-start: 1;
   grid-column-start: 3;
   background-color: var(--lav8);
