@@ -173,3 +173,56 @@ document.addEventListener("DOMContentLoaded", () => {
             eventsInteractive.classList.remove('continue');
         }
     });
+
+
+
+//  control stickiness of interactive element:
+
+const interactiveElement = document.querySelector('.events-interactive');
+const row5End = document.querySelector('.events-row-5-end');
+const eventsContent = document.querySelector('.events-content');
+
+let isFixed = false;
+
+// Observer to check if the events-content is on the screen
+const contentObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      // Hide the interactive element if events-content is not visible
+      interactiveElement.classList.add('hidden');
+    } else {
+      // Show the interactive element if events-content is visible
+      interactiveElement.classList.remove('hidden');
+    }
+  });
+}, {
+  root: null, // Viewport
+  threshold: 0 // Partially visible is enough to trigger
+});
+
+contentObserver.observe(eventsContent);
+
+// Observer to check the position of row5End
+const row5EndObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (interactiveElement.classList.contains('hidden')) {
+      // Skip logic if interactive element is hidden
+      return;
+    }
+
+    if (entry.isIntersecting) {
+      // Row5End is visible
+      interactiveElement.classList.add('continue');
+      isFixed = true;
+    } else {
+      // Row5End is not visible
+      interactiveElement.classList.remove('continue');
+      isFixed = false;
+    }
+  });
+}, {
+  root: null, // Viewport
+  threshold: 1.0 // Fully visible
+});
+
+row5EndObserver.observe(row5End);

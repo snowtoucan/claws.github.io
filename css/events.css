@@ -1,7 +1,7 @@
 .events-container {
   display: grid;
-  grid-template-columns: 32vw 32vw 1fr;
-  grid-template-rows: 82.8px calc(48vw - 82.8px) 82.8px 165.6px 1000px;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(0, 400px);
+  grid-template-rows: 82.8px minmax(calc(450px - 82.8px), calc((100vw - 400px)*(3/4) - 82.8px)) 82.8px 207px 1000px;
 }
 
 .events-content {
@@ -22,10 +22,10 @@
   align-self: end;
 }
 
-.events-row-5-end {
+.events-row-5-end { /* acts as a marker for js */
   grid-row: 5 / 6;
   grid-column: 1 / -1;
-  height: 0; /* Acts as a marker for JavaScript without affecting layout */
+  height: 0;
 }
 
 .events-title {
@@ -35,8 +35,28 @@
 
 .events-description {
   grid-area: 4 / 1 / 5 / 3;
-  width: 64vw;
   background-color: aqua;
+}
+
+@media (max-width: 920px) {
+  .events-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 82.8px calc((100vw)*(3/4) - 82.8px) 560px 82.8px 207px 1000px; /* height of interactive element can change if open/closed (use variable) */
+  }
+  .events-interactive {
+    position: relative;
+    grid-area: 3 / 1 / 4 / 3;
+    height: 560px;
+  }
+  .events-title {
+    grid-area: 4 / 1 / 5 / 3;
+  }
+  .events-description {
+    grid-area: 5 / 1 / 6 / 3;
+  }
+  .events-row-5-end {
+    display: none;
+  }
 }
 
 .dls-1, .dls-2, .dls-3, .dls-4, .dls-5, .dls-6, .dls-7, .dls-8, .dls-9, .dls-10, .dls-11, .dls-12, .dls-13, .dls-14, .dls-15, .dls-16, .dls-17, .dls-18, .dls-19, .dls-20, .dls-21, .dls-22 {

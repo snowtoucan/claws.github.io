@@ -56,28 +56,6 @@
 
     </main>
 
-    <script>
-const interactiveElement = document.querySelector('.events-interactive');
-const row5End = document.querySelector('.events-row-5-end');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Row 5's bottom is visible: fix .events-interactive to bottom
-      interactiveElement.classList.add('continue');
-    } else {
-      // Row 5's bottom isn't visible: return to sticky behavior
-      interactiveElement.classList.remove('continue');
-    }
-  });
-}, {
-  root: null, // Viewport
-  threshold: 1.0 // Fully visible
-});
-
-observer.observe(row5End);
-    </script>
-
     <script src="scripts/nav.js"></script>
     <script src="scripts/toggle-themes.js"></script>
     <script src="scripts/toggle-menu.js"></script>
