@@ -147,3 +147,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 2000); // Change transition after 2 seconds
 });
+
+
+
+    // Select the elements
+    const eventsDescription = document.querySelector('.events-description');
+    const eventsInteractive = document.querySelector('.events-interactive');
+
+    // Ensure elements are selected correctly
+    if (!eventsDescription || !eventsInteractive) {
+        console.log('Could not find elements');
+    }
+
+    // Listen for the scroll event on the window
+    window.addEventListener('scroll', function() {
+        // Get the position of events-description relative to the viewport
+        const rect = eventsDescription.getBoundingClientRect();
+
+        // Check if the bottom of events-description is in the viewport
+        if (rect.bottom <= window.innerHeight) {
+            // Add the 'continue' class if the bottom of the description is visible
+            eventsInteractive.classList.add('continue');
+        } else {
+            // Remove the 'continue' class if it's not visible
+            eventsInteractive.classList.remove('continue');
+        }
+    });

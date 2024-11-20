@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <div class = "events-containter">
+        <div class="events-container">
             <div class="events-content">
                 <svg id="SMPTE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
                     <rect class="dls-1" width="171.43" height="600.03"/>
@@ -44,9 +44,39 @@
                     <rect class="dls-22" x="1028.57" width="171.43" height="600.03"/>
                 </svg>
             </div>
+            <div class="events-interactive">
+                <div class="interactive-title"></div>
+                <div class="interactive-main"></div>
+                <div class="interactive-chat"></div>
+            </div>
+            <div class="events-title"></div>
+            <div class="events-description"></div>
+            <div class="events-row-5-end"></div>
         </div>
 
     </main>
+
+    <script>
+const interactiveElement = document.querySelector('.events-interactive');
+const row5End = document.querySelector('.events-row-5-end');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Row 5's bottom is visible: fix .events-interactive to bottom
+      interactiveElement.classList.add('continue');
+    } else {
+      // Row 5's bottom isn't visible: return to sticky behavior
+      interactiveElement.classList.remove('continue');
+    }
+  });
+}, {
+  root: null, // Viewport
+  threshold: 1.0 // Fully visible
+});
+
+observer.observe(row5End);
+    </script>
 
     <script src="scripts/nav.js"></script>
     <script src="scripts/toggle-themes.js"></script>

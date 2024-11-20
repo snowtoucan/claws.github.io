@@ -1,11 +1,42 @@
-.events-containter {
-  display: flex;
-  justify-content: center; 
-  align-items: center;    
+.events-container {
+  display: grid;
+  grid-template-columns: 32vw 32vw 1fr;
+  grid-template-rows: 82.8px calc(48vw - 82.8px) 82.8px 165.6px 1000px;
 }
 
 .events-content {
+  grid-area: 1 / 1 / 3 / 3;
+}
+
+.events-interactive {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 82.8px);
+  grid-row-start: 1;
+  grid-column-start: 3;
+  background-color: red;
+}
+.events-interactive.continue {
+  position: relative;
+  grid-area: 1 / 3 / 5 / 4;
+  align-self: end;
+}
+
+.events-row-5-end {
+  grid-row: 5 / 6;
+  grid-column: 1 / -1;
+  height: 0; /* Acts as a marker for JavaScript without affecting layout */
+}
+
+.events-title {
+  grid-area: 3 / 1 / 4 / 3;
+  background-color: blue;
+}
+
+.events-description {
+  grid-area: 4 / 1 / 5 / 3;
   width: 64vw;
+  background-color: aqua;
 }
 
 .dls-1, .dls-2, .dls-3, .dls-4, .dls-5, .dls-6, .dls-7, .dls-8, .dls-9, .dls-10, .dls-11, .dls-12, .dls-13, .dls-14, .dls-15, .dls-16, .dls-17, .dls-18, .dls-19, .dls-20, .dls-21, .dls-22 {
