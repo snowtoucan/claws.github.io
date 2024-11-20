@@ -3,6 +3,11 @@ import {artistPreview} from "./artists.js";
 
 const sideBarContainer = document.getElementById('sidebar');
 
+const replacebgList = document.createElement('div');
+replacebgList.className = 'replacebglist';
+replacebgList.id = 'replacebglist';
+sideBarContainer.appendChild(replacebgList);
+
 const scrollMargin = document.createElement('div');
 scrollMargin.className = 'scrollmargin';
 scrollMargin.id = 'scrollmargin';
@@ -40,30 +45,54 @@ for (const [icon, path] of iconList) {
 }
 
 function handleMouseEnter(event) {
-    event.target.classList.add('hovered');
+    const target = event.target;
 
-    const index = event.target.getAttribute("data-index");
-    const container = document.getElementById("artistbody");
+    // Add hover effect
+    target.classList.add('hovered');
 
-    // hide content 
-    const content = document.getElementById("artistContent");
-    content.style.display = "none";
+    // Handle artist preview (from friend's code)
+    if (target.classList.contains("artistIcon")) {
+        const index = target.getAttribute("data-index");
+        const container = document.getElementById("artistbody");
 
-    // add preview
-    let preview = document.createElement("div");
-    preview.id = "artistPreview"
-    preview.innerHTML = artistPreview[index];
-    container.appendChild(preview);
+        // Hide existing content
+        const content = document.getElementById("artistContent");
+        content.style.display = "none";
+
+        // Add preview
+        let preview = document.createElement("div");
+        preview.id = "artistPreview";
+        preview.innerHTML = artistPreview[index];
+        container.appendChild(preview);
+    }
 }
 
 function handleMouseLeave(event) {
-    event.target.classList.remove('hovered');
+    const target = event.target;
 
-    // remove preview
-    const preview = document.getElementById("artistPreview");
-    preview.remove();
+    // Remove hover effect
+    target.classList.remove('hovered');
 
-    // show artist content
-    const content = document.getElementById("artistContent");
-    content.style.display = "block";
+    // Handle artist preview cleanup
+    if (target.classList.contains("artistIcon")) {
+        const preview = document.getElementById("artistPreview");
+        if (preview) preview.remove();
+
+        // Restore artist content
+        const content = document.getElementById("artistContent");
+        content.style.display = "block";
+    }
 }
+
+// Event Listeners for Scroll Margin and Artist List
+document.addEventListener('mouseenter', (event) => {
+    if (event.target.id === 'artistlist') {
+        event.target.classList.add('hovered');
+    }
+}, true);
+
+document.addEventListener('mouseleave', (event) => {
+    if (event.target.id === 'artistlist') {
+        event.target.classList.remove('hovered');
+    }
+}, true);

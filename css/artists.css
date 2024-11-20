@@ -54,6 +54,7 @@
     width: calc(82.8px + 6px);
     min-width: calc(82.8px + 6px);
     height: 100%;
+    z-index: 500;
   }
 
   .scroll-wrapper {

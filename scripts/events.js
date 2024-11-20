@@ -3,8 +3,8 @@ const hsbRanges = {
     hueMin: 0,         // Minimum hue (0º)
     hueMax: 360,       // Maximum hue (360º)
     saturationMin: 20, // Minimum saturation (30%)
-    saturationMax: 70, // Maximum saturation (70%)
-    brightnessMin: 50, // Minimum brightness (70%)
+    saturationMax: 40, // Maximum saturation (70%)
+    brightnessMin: 90, // Minimum brightness (70%)
     brightnessMax: 100 // Maximum brightness (100%)
 };
 
@@ -146,8 +146,4 @@ document.addEventListener("DOMContentLoaded", () => {
             rect.style.transition = "fill 1s ease-in-out";
         });
     }, 2000); // Change transition after 2 seconds
-
-    // Example usage of the toggleMode function (e.g., binding to a button):
-    // gives error
-    //document.getElementById("toggleButton").addEventListener("click", toggleMode);
 });

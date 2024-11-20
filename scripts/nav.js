@@ -38,45 +38,45 @@ navContainer.innerHTML = `
                         </li>
                         <div class="submenu about-submenu">
                             <li>
-                                <a id = 'artistsLink' href="${prefix}./artists/harmtails.html">
+                                <a id='artistsLink' href="${prefix}./artists/harmtails.html">
                                     <h2>artists</h2>
                                 </a>
                             </li>
                             <li>
-                                <a id = 'historyLink' href="#">
+                                <a id='historyLink' href="#">
                                     <h2>history</h2>
                                 </a>
                             </li>
                             <li>
-                                <a id = 'newsLink' href="#">
+                                <a id='newsLink' href="#">
                                     <h2>news</h2>
                                 </a>
                             </li>
                             <li>
-                                <a id = 'enquiriesLink' href="#" onclick="showSubMenu('enquiries')">
+                                <a id='enquiriesLink' href="#" onclick="showSubMenu('enquiries')">
                                     <h2>enquiries</h2>
                                 </a>
                             </li>
                         </div>
                         <div class="submenu enquiries-submenu">
                             <li>
-                                <a id = 'licensingLink' href="#">
+                                <a id='licensingLink' href="#">
                                     <h2>licensing</h2>
                                 </a>
                             </li>
                             <li>
-                                <a id = 'bookingLink' href="#">
+                                <a id='bookingLink' href="#">
                                     <h2>booking</h2>
                                 </a>
                             </li>
                             <li>
-                                <a id = 'contactLink' href="#">
+                                <a id='contactLink' href="#">
                                     <h2>contact us</h2>
                                 </a>
                             </li>
                         </div>
                         <li class="li-head menu">
-                            <a id = 'shopLink' href="#">
+                            <a id='shopLink' href="#">
                                 <h2 class="noselect">shop</h2>
                             </a>
                         </li>
@@ -86,13 +86,13 @@ navContainer.innerHTML = `
                             </a>
                         </li>
                         <div class="submenu listen-submenu">
-                            <li><a id = 'releasesLink' href="#"><h2>releases</h2></a></li>
-                            <li><a id = 'festivalLink' href="#"><h2>claws festivals</h2></a></li>
-                            <li><a id = 'familyLink' href="#"><h2>claws family</h2></a></li>
+                            <li><a id='releasesLink' href="#"><h2>releases</h2></a></li>
+                            <li><a id='festivalLink' href="https://soundcloud.com/claws-world/sets/claws-festivals" target="_blank"><h2>claws festivals</h2></a></li>
+                            <li><a id='familyLink' href="https://soundcloud.com/claws-world/sets/claws-family" target="_blank"><h2>claws family</h2></a></li>
                         </div>
                         <li class="li-head menu">
-                            <a id = 'eventsLink' href="${prefix}./events.html">
-                                <h2  class="noselect">events</h2>
+                            <a id='eventsLink' href="${prefix}./events.html">
+                                <h2 class="noselect">events</h2>
                             </a>
                         </li>
                     </div>
