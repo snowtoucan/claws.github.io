@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //  control stickiness of interactive element:
 
 const interactiveElement = document.querySelector('.events-interactive');
-const row5End = document.querySelector('.events-row-5-end');
+const row4End = document.querySelector('.events-row-4-end');
 const eventsContent = document.querySelector('.events-content');
 
 let isFixed = false;
@@ -202,8 +202,8 @@ const contentObserver = new IntersectionObserver((entries) => {
 
 contentObserver.observe(eventsContent);
 
-// Observer to check the position of row5End
-const row5EndObserver = new IntersectionObserver((entries) => {
+// Observer to check the position of row4End
+const row4EndObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (interactiveElement.classList.contains('hidden')) {
       // Skip logic if interactive element is hidden
@@ -211,11 +211,11 @@ const row5EndObserver = new IntersectionObserver((entries) => {
     }
 
     if (entry.isIntersecting) {
-      // Row5End is visible
+      // Row4End is visible
       interactiveElement.classList.add('continue');
       isFixed = true;
     } else {
-      // Row5End is not visible
+      // Row4End is not visible
       interactiveElement.classList.remove('continue');
       isFixed = false;
     }
@@ -225,4 +225,4 @@ const row5EndObserver = new IntersectionObserver((entries) => {
   threshold: 1.0 // Fully visible
 });
 
-row5EndObserver.observe(row5End);
+row4EndObserver.observe(row4End);

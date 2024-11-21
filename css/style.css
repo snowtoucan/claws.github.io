@@ -40,10 +40,10 @@ li {
   
 @font-face {
   font-family: 'MedievalSharp';
-  src: url(https://fonts.gstatic.com/s/medievalsharp/v14/EvOJzAlL3oU5AQl2mP5KdgptMqhwMinUPDg.woff2) format('woff2');
+  src: url('../assets/medievalsharp.woff2') format('woff2');
 }
 
-h1, h2, p {
+h1, h2, h3, h4, p {
   font-family: 'MedievalSharp';
   font-weight: normal;
   margin: 0;
@@ -55,6 +55,14 @@ h1 {
   
 h2 {
   font-size: 23.4px;
+}
+
+h3 {
+  font-size: 31.6px;
+}
+
+h4 {
+  font-size: 27.6px; 
 }
   
 p {
