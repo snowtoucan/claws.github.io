@@ -226,3 +226,42 @@ const row4EndObserver = new IntersectionObserver((entries) => {
 });
 
 row4EndObserver.observe(row4End);
+
+
+// live + chat + pastevents switching
+const eventsTitle = document.querySelector('.events-title')
+const eventsContainer = document.querySelector('.events-container')
+const interactiveTitle = document.querySelector('.content-title.interactive')
+const contentTitle = document.getElementById("content-title")
+const contentDescription = document.querySelector('.content-description')
+
+function eventType(type) { //replay, live, past
+    if (type == 'replay') {
+        interactiveElement.classList.add('chat');
+        eventsTitle.classList.add('chat');
+        eventsContainer.classList.add('chat');
+        eventsDescription.classList.add('chat');
+        interactiveTitle.textContent = 'Chat Replay:';
+        contentTitle.textContent = '(Past Event Title)';
+        contentDescription.textContent = '(Past Event Description)';
+    } else if (type == 'live') {
+        interactiveElement.classList.add('chat');
+        eventsTitle.classList.add('chat');
+        eventsContainer.classList.add('chat');
+        eventsDescription.classList.add('chat');
+        interactiveTitle.textContent = 'Live Chat:';
+        contentTitle.textContent = '(Live Event Title)';
+        contentDescription.textContent = '(Live Event Description)';
+    }
+    else {
+        interactiveElement.classList.remove('chat');
+        eventsTitle.classList.remove('chat');
+        eventsContainer.classList.remove('chat');
+        eventsDescription.classList.remove('chat');
+        interactiveTitle.textContent = 'Past Events:';
+    }
+};
+
+eventType('none')
+// countdown functionality for live?
+// need to think about backend. scheduling events and uploading old ones should be made easy as possible

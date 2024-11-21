@@ -59,30 +59,30 @@
 @media (max-width: 920px) {
   .events-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: calc((100vw)*(3/4)) 560px 69px 250px 1000px; /* height of interactive element can change if open/closed (use variable) */
+    grid-template-rows: calc((100vw)*(3/4)) 69px 250px 560px 1000px; /* height of interactive element can change if open/closed (use variable) */
   }
   .events-container.chat {
-    grid-template-rows: calc((100vw)*(3/4)) 69px 250px 560px 1000px;
+    grid-template-rows: calc((100vw)*(3/4)) 560px 69px 250px 1000px;
   }
   .events-interactive { /* (past streams) */
     position: relative;
-    grid-area: 2 / 1 / 3 / 3;
+    grid-area: 4 / 1 / 5 / 3;
     height: 560px;
   }
   .events-interactive.chat {
-    grid-area: 4 / 1 / 5 / 3;
-  }
-  .events-title {
-    grid-area: 3 / 1 / 4 / 3;
-  }
-  .events-title.chat {
     grid-area: 2 / 1 / 3 / 3;
   }
+  .events-title {
+    grid-area: 2 / 1 / 3 / 3;
+  }
+  .events-title.chat {
+    grid-area: 3 / 1 / 4 / 3;
+  }
   .events-description {
-    grid-area: 4 / 1 / 5 / 3;
+    grid-area: 3 / 1 / 4 / 3;
   }
   .events-description.chat {
-    grid-area: 3 / 1 / 4 / 3;
+    grid-area: 4 / 1 / 5 / 3;
   }
   .events-row-4-end {
     display: none;
