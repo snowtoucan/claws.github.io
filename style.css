@@ -1,0 +1,54 @@
+:root {
+  --pxScale: 4px;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+  touch-action: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  overflow: clip;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  contain: strict;
+  z-index: 1;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: fit-content;
+    margin: 50vh 0 0 50vw;
+    transform: translate(-50%, -50%);
+    align-self: center;
+    image-rendering: pixelated;
+}
+
+.maindiv {
+    width: 100%;
+}
+
+#pegasus-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc(1 * var(--pxScale));
+}
+#maintext-container {
+    display: flex;
+    justify-content: center;
+}
+
+#pegasus {
+    height: calc(19 * var(--pxScale));
+}
+#maintext {
+    height: calc(5 * var(--pxScale));
+}
