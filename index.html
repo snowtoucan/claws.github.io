@@ -29,68 +29,9 @@
         <link rel="apple-touch-icon" href="assets/favicon.png">
         <link rel="icon" href="assets/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="style.css" media="all">
+        
     </head>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        // Skip on touch devices
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (isTouchDevice) return; // Skip creating #pixel-cursor
-
-        const pixel = document.createElement("div");
-        pixel.id = "pixel-cursor";
-        pixel.style.opacity = "0";
-        pixel.style.transition = "opacity 0.05s linear, transform 0s";
-        document.body.appendChild(pixel);
-
-        let isInside = false;
-
-        // Update position & show cursor
-        const updatePos = (x, y) => {
-            pixel.style.transform = `translate(${x - pixel.offsetWidth / 2}px, ${y - pixel.offsetHeight / 2}px)`;
-            if (!isInside) {
-            pixel.style.opacity = "1";
-            isInside = true;
-            }
-        };
-
-        const hide = () => {
-            pixel.style.opacity = "0";
-            isInside = false;
-        };
-
-        // Pointer move — fast & hardware synced
-        window.addEventListener("pointermove", e => {
-            updatePos(e.clientX, e.clientY);
-        }, { passive: true });
-
-        // Flicker on click
-        window.addEventListener("pointerdown", () => {
-            pixel.classList.add("flicker");
-        });
-        pixel.addEventListener("animationend", () => {
-            pixel.classList.remove("flicker");
-        });
-
-        // --- Robust hide logic ---
-        // 1. If the pointer leaves window bounds
-        window.addEventListener("mouseout", e => {
-            if (!e.relatedTarget && !e.toElement) hide();
-        });
-
-        // 2. If the document loses focus (alt-tab, click other window)
-        window.addEventListener("blur", hide);
-
-        // 3. If tab goes inactive
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) hide();
-        });
-
-        // 4. Re-show only when pointer re-enters (next move)
-        window.addEventListener("mouseenter", e => {
-            updatePos(e.clientX, e.clientY);
-        });
-        });
-        </script>
+    
     <body>
         <div class="main">
             <div id="main-container">
@@ -118,134 +59,10 @@
                 </div>
 
             </div>
+            
         </div>
+        <!--<div id="info-container"></div>-->
+        <script type="module" loading="lazy" src="scripts.js"></script>
     </body>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const pegasusDivs = [...document.querySelectorAll(".pegasus-arch-subdiv")];
-            const imgs = pegasusDivs.map(div => div.querySelector(".pegasus-img"));
-
-            // Detect touch device
-            const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-
-            // Use full-screen detection radius on touch
-            const hoverRadius = isTouch ? Infinity : 100;
-
-            // Initial opacity setup
-            imgs.forEach(img => {
-                img.style.opacity = "0.5";
-                img.style.transition = "opacity 0.3s ease";
-            });
-
-            const resetAll = () => imgs.forEach(img => img.style.opacity = "0.5");
-
-            const handlePosition = (x, y) => {
-                let closestIndex = -1;
-                let closestDist = Infinity;
-
-                // Find the div whose center is closest to the pointer
-                pegasusDivs.forEach((div, i) => {
-                    const rect = div.getBoundingClientRect();
-                    const cx = rect.left + rect.width / 2;
-                    const cy = rect.top + rect.height / 2;
-                    const dist = Math.hypot(x - cx, y - cy);
-                    if (dist < closestDist) {
-                        closestDist = dist;
-                        closestIndex = i;
-                    }
-                });
-
-                // Only brighten one image if cursor is within hoverRadius
-                if (closestDist <= hoverRadius) {
-                    imgs.forEach((img, i) => {
-                        img.style.opacity = (i === closestIndex) ? "1" : "0.5";
-                    });
-                } else {
-                    resetAll();
-                }
-            };
-
-            // Mouse move
-            window.addEventListener("mousemove", e => handlePosition(e.clientX, e.clientY));
-            window.addEventListener("mouseleave", resetAll);
-
-            // Touch move support
-            window.addEventListener("touchstart", e => {
-                if (e.touches.length) handlePosition(e.touches[0].clientX, e.touches[0].clientY);
-            }, { passive: true });
-
-            window.addEventListener("touchmove", e => {
-                if (e.touches.length) handlePosition(e.touches[0].clientX, e.touches[0].clientY);
-            }, { passive: true });
-
-            window.addEventListener("touchend", resetAll);
-            window.addEventListener("touchcancel", resetAll);
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        const pegasusDivs = [...document.querySelectorAll(".pegasus-arch-subdiv")];
-        const imgs = pegasusDivs.map(div => div.querySelector(".pegasus-img"));
-
-        // Find nearest Pegasus to a point (same logic as your hover)
-        const findNearestIndex = (x, y) => {
-            let closestIndex = -1;
-            let closestDist = Infinity;
-
-            pegasusDivs.forEach((div, i) => {
-            const rect = div.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dist = Math.hypot(x - cx, y - cy);
-            if (dist < closestDist) {
-                closestDist = dist;
-                closestIndex = i;
-            }
-            });
-
-            return (closestDist <= 100) ? closestIndex : -1;
-        };
-
-        const flickerImage = (i) => {
-            if (i === -1) return;
-            imgs[i].classList.add("flicker");
-        };
-
-        imgs.forEach(img => {
-            img.addEventListener("animationend", () => {
-            img.classList.remove("flicker");
-            });
-        });
-
-        // Mouse click flicker
-        window.addEventListener("mousedown", e => {
-            const i = findNearestIndex(e.clientX, e.clientY);
-            flickerImage(i);
-        });
-
-        // Optional: touch flicker too
-        window.addEventListener("touchstart", e => {
-            if (e.touches.length) {
-            const i = findNearestIndex(e.touches[0].clientX, e.touches[0].clientY);
-            flickerImage(i);
-            }
-        }, { passive: true });
-        });
-
-        // Remove passive: true so vibration works
-        window.addEventListener("touchstart", e => {
-            if (!e.touches.length) return;
-
-            const x = e.touches[0].clientX;
-            const y = e.touches[0].clientY;
-            const i = findNearestIndex(x, y);
-            flickerImage(i);
-
-            if (navigator.vibrate) {
-                navigator.vibrate(50); // 50ms tap vibration
-            }
-        }, { passive: false });
-        </script>
 </html>
