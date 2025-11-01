@@ -1,5 +1,6 @@
 :root {
   --pxScale: 4px;
+  --hueStart: 0deg;
 }
 
 @media (max-width: 1024px) {
@@ -9,11 +10,12 @@
 }
 
 body {
-    background-color: black;
+  background-color: black;
+  margin: 0;
 }
 
 * {
-  -webkit-tap-highlight-color: transparent; /* removes mobile tap flash */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body, .main, #main-container, .maindiv {
@@ -23,12 +25,17 @@ body, .main, #main-container, .maindiv {
   user-select: none;
 }
 
-/* Hide native cursor */
 html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  min-height: 100%;
   cursor: none;
 }
 
-/* Inverting pixel cursor */
 #pixel-cursor {
   position: fixed;
   top: 0;
@@ -36,36 +43,34 @@ html, body {
   width: var(--pxScale);
   height: var(--pxScale);
   background: white;
-  mix-blend-mode: difference;
+  mix-blend-mode: exclusion;
   pointer-events: none;
   z-index: 9999;
   image-rendering: pixelated;
-  will-change: transform;
-  transition: transform 0s; /* no interpolation lag */
+  will-change: auto;
+  transition: transform 0s;
 }
 
-/* Flicker animation */
 @keyframes flicker {
-  0%   { opacity: 1; }
-  50%  { opacity: 0; }
+  0% { opacity: 1; }
+  50% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-/* Flicker animation */
 @keyframes flicker2 {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.8; }
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
   100% { opacity: 1; }
 }
 
 #pixel-cursor.flicker {
   animation: flicker 0.2s steps(2, end);
 }
+
 .pegasus-img.flicker {
   animation: flicker2 0.2s steps(3, end);
 }
 
-/* Hide entirely on touch devices */
 @media (hover: none) and (pointer: coarse) {
   #pixel-cursor {
     display: none !important;
@@ -74,92 +79,95 @@ html, body {
 
 .main {
   touch-action: none;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100%;
-  overflow: clip;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  contain: strict;
+  min-height: 100dvh;
+  contain: paint;
   z-index: 1;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    height: auto;
-    image-rendering: pixelated;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 100dvh;
+  min-width: 100vw;
+  background: hsl(var(--hueStart), 80%, 65%); /* hue controlled by JS */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+#info-container {
+  background-color: black;
+  height: 1500px;
+  width: 100vw;
+  position: relative;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#info-container h1 {
+  margin: 0;
+  padding: calc(2 * var(--pxScale));
 }
 
 .maindiv {
-    width: 100%;
+  width: 100%;
 }
 
 #pegasus-container {
-    display: grid;
-    grid-template-columns: calc(23 * var(--pxScale)) calc(21 * var(--pxScale)) calc(19 * var(--pxScale)) calc(21 * var(--pxScale)) calc(22 * var(--pxScale));
-    justify-content: center;
-    margin-bottom: calc(1 * var(--pxScale));
+  display: grid;
+  grid-template-columns:
+    calc(23 * var(--pxScale))
+    calc(21 * var(--pxScale))
+    calc(19 * var(--pxScale))
+    calc(21 * var(--pxScale))
+    calc(22 * var(--pxScale));
+  justify-content: center;
+  margin-bottom: calc(1 * var(--pxScale));
 }
+
 .pegasus-arch-subdiv {
-    height: calc(25 * var(--pxScale));
+  height: calc(25 * var(--pxScale));
 }
 
 #maintext-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 img {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    pointer-events: none; /* disables dragging, clicking, right-click dragging */
-    -webkit-user-drag: none; /* Safari/old WebKit */
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
-    touch-action: none; /* prevents touch drag on mobile */
-    -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  touch-action: none;
+  -webkit-touch-callout: none;
 }
 
 .pegasus-img {
-    width: 100%;
-}
-#pegasus-a {
-    padding-top: calc(6 * var(--pxScale));
-}
-#pegasus-b {
-    padding-top: calc(3 * var(--pxScale));
-}
-#pegasus-d {
-    padding-top: calc(2 * var(--pxScale));
-}
-#pegasus-e {
-    padding-top: calc(10 * var(--pxScale));
-}
-#subdiv-c {
-    padding-left: calc(2 * var(--pxScale));
-}
-#subdiv-d {
-    padding-left: calc(1 * var(--pxScale));
-}
-#subdiv-e {
-    padding-left: calc(1 * var(--pxScale));
+  width: 100%;
 }
 
+#pegasus-a { padding-top: calc(6 * var(--pxScale)); }
+#pegasus-b { padding-top: calc(3 * var(--pxScale)); }
+#pegasus-d { padding-top: calc(2 * var(--pxScale)); }
+#pegasus-e { padding-top: calc(10 * var(--pxScale)); }
+
+#subdiv-c { padding-left: calc(2 * var(--pxScale)); }
+#subdiv-d { padding-left: calc(1 * var(--pxScale)); }
+#subdiv-e { padding-left: calc(1 * var(--pxScale)); }
+
 #maintext {
-    height: calc(5 * var(--pxScale));
+  height: calc(5 * var(--pxScale));
 }
