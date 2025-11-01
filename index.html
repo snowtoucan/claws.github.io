@@ -33,7 +33,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
         // Skip on touch devices
-        if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) return; // Skip creating #pixel-cursor
 
         const pixel = document.createElement("div");
         pixel.id = "pixel-cursor";
@@ -232,5 +233,19 @@
             }
         }, { passive: true });
         });
+
+        // Remove passive: true so vibration works
+        window.addEventListener("touchstart", e => {
+            if (!e.touches.length) return;
+
+            const x = e.touches[0].clientX;
+            const y = e.touches[0].clientY;
+            const i = findNearestIndex(x, y);
+            flickerImage(i);
+
+            if (navigator.vibrate) {
+                navigator.vibrate(50); // 50ms tap vibration
+            }
+        }, { passive: false });
         </script>
 </html>
